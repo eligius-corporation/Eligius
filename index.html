@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eligius Corporation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #121212;
+            color: #fff;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #1e1e1e;
+            padding: 20px;
+            border-bottom: 3px solid #ff0000;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+            color: #ff0000;
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #1e1e1e;
+            padding: 10px;
+        }
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: bold;
+        }
+        nav a:hover {
+            color: #ff0000;
+        }
+        .container {
+            padding: 20px;
+        }
+        .section-title {
+            font-size: 2em;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #ff0000;
+            padding-bottom: 10px;
+        }
+        .course-item {
+            background-color: #1e1e1e;
+            margin-bottom: 20px;
+            padding: 15px;
+            border: 1px solid #333;
+        }
+        .course-item h3 {
+            margin: 0;
+            color: #ff0000;
+        }
+        .course-item p {
+            margin: 10px 0;
+        }
+        footer {
+            background-color: #1e1e1e;
+            padding: 20px;
+            text-align: center;
+            border-top: 3px solid #ff0000;
+        }
+        footer p {
+            margin: 0;
+            font-size: 0.9em;
+        }
+    </style>
+    <!-- Scripts do Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-auth.js"></script>
+    <script>
+        // Configurações do Firebase
+        const firebaseConfig = {
+            apiKey: "AIzaSyAlAaKgrLVfxgURQEEuitxfP1mJyZUaZzw",
+            authDomain: "eligius-corporation-3f020.firebaseapp.com",
+            projectId: "eligius-corporation-3f020",
+        };
+
+        // Inicializa o Firebase
+        firebase.initializeApp(firebaseConfig);
+        const auth = firebase.auth();
+
+        // Redireciona para a página de login se o usuário não estiver autenticado
+        auth.onAuthStateChanged((user) => {
+            if (!user) {
+                window.location.href = 'login.html';
+            }
+        });
+    </script>
+</head>
+<body>
+    <header>
+        <h1>Eligius Corporation</h1>
+    </header>
+    <nav>
+        <a href="#pdfs">PDFs</a>
+        <a href="#videoaulas">Videoaulas</a>
+        <a href="#catalogo">Catálogo</a>
+        <a href="#gratuitos">Gratuitos</a>
+        <a href="#redes-sociais">Redes Sociais</a>
+        <a href="#contato">Contato</a>
+        <a href="#portfolio">Portfólio</a>
+    </nav>
+    <div class="container">
+        <section id="pdfs">
+            <h2 class="section-title">PDFs</h2>
+            <div class="course-item">
+                <h3>Curso em PDF 1</h3>
+                <p>Descrição do curso em PDF.</p>
+            </div>
+            <div class="course-item">
+                <h3>Curso em PDF 2</h3>
+                <p>Descrição do curso em PDF.</p>
+            </div>
+        </section>
+        <section id="videoaulas">
+            <h2 class="section-title">Videoaulas</h2>
+            <div class="course-item">
+                <h3>Videoaula 1</h3>
+                <p>Descrição da videoaula.</p>
+            </div>
+            <div class="course-item">
+                <h3>Videoaula 2</h3>
+                <p>Descrição da videoaula.</p>
+            </div>
+        </section>
+        <section id="catalogo">
+            <h2 class="section-title">Catálogo</h2>
+            <p>Aqui você encontra todos os nossos cursos disponíveis.</p>
+        </section>
+        <section id="gratuitos">
+            <h2 class="section-title">Recursos Gratuitos</h2>
+            <p>Acesse conteúdos gratuitos para ajudar na sua preparação.</p>
+        </section>
+        <section id="redes-sociais">
+            <h2 class="section-title">Redes Sociais</h2>
+            <p>Siga-nos nas redes sociais.</p>
+        </section>
+        <section id="contato">
+            <h2 class="section-title">Contato</h2>
+            <p>Entre em contato conosco para mais informações.</p>
+        </section>
+        <section id="portfolio">
+            <h2 class="section-title">Portfólio</h2>
+            <p>Confira nossos trabalhos e depoimentos de alunos.</p>
+        </section>
+    </div>
+    <footer>
+        <p>&copy; 2024 Eligius Corporation. Todos os direitos reservados.</p>
+    </footer>
+</body>
+</html>

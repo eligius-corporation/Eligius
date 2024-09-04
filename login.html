@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #121212;
+            color: #fff;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: #1e1e1e;
+        }
+        .login-container {
+            background-color: #1e1e1e;
+            padding: 20px;
+            border-radius: 5px;
+            border: 1px solid #ff0000;
+        }
+        .login-container h1 {
+            margin: 0 0 20px;
+            color: #ff0000;
+            text-align: center;
+        }
+        .login-container input {
+            margin: 10px 0;
+            padding: 10px;
+            width: 100%;
+            border: 1px solid #333;
+            border-radius: 3px;
+            background-color: #333;
+            color: #fff;
+        }
+        .login-container button {
+            padding: 10px;
+            border: none;
+            background-color: #ff0000;
+            color: #fff;
+            border-radius: 3px;
+            cursor: pointer;
+            width: 100%;
+        }
+        .login-container button:hover {
+            background-color: #cc0000;
+        }
+        .login-container p {
+            text-align: center;
+            color: #ff0000;
+        }
+    </style>
+    <!-- Scripts do Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-auth.js"></script>
+    <script>
+        // Configurações do Firebase
+        const firebaseConfig = {
+            apiKey: "AIzaSyAlAaKgrLVfxgURQEEuitxfP1mJyZUaZzw",
+            authDomain: "eligius-corporation-3f020.firebaseapp.com",
+            projectId: "eligius-corporation-3f020",
+        };
+
+        // Inicializa o Firebase
+        firebase.initializeApp(firebaseConfig);
+        const auth = firebase.auth();
+    </script>
+</head>
+<body>
+    <div class="login-container">
+        <h1>Login</h1>
+        <input type="email" id="loginEmail" placeholder="Email">
+        <input type="password" id="loginPassword" placeholder="Senha">
+        <button id="loginButton">Login</button>
+        <p id="loginMessage"></p>
+
+        <script>
+            document.getElementById('loginButton').addEventListener('click', function() {
+                const email = document.getElementById('loginEmail').value;
+                const password = document.getElementById('loginPassword').value;
+
+                auth.signInWithEmailAndPassword(email, password)
+                    .then((userCredential) => {
+                        // Login bem-sucedido, redirecionar para a página principal
+                        window.location.href = 'index.html';
+                    })
+                    .catch((error) => {
+                        document.getElementById('loginMessage').textContent = 'Erro: ' + error.message;
+                    });
+            });
+        </script>
+    </div>
+</body>
+</html>
